@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>大满贯报价工作台</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="workspace" aria-label="大满贯报价工作台">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Offer Builder</p>
+            <h1>大满贯报价工作台</h1>
+          </div>
+          <div class="top-actions">
+            <button class="icon-button" id="resetButton" type="button" title="清空">
+              <span aria-hidden="true">↺</span>
+            </button>
+            <button class="primary-button" id="copyButton" type="button">复制方案</button>
+          </div>
+        </header>
+
+        <div class="layout">
+          <form class="panel input-panel" id="offerForm">
+            <div class="section-heading">
+              <span class="step">1</span>
+              <div>
+                <h2>市场与结果</h2>
+                <p>先锁定人群、痛点、梦想结果和成功概率。</p>
+              </div>
+            </div>
+
+            <label>
+              目标客户
+              <input name="customer" autocomplete="off" placeholder="例如：想提升成交率的知识付费创业者">
+            </label>
+
+            <label>
+              核心痛点
+              <textarea name="pain" rows="3" placeholder="他们现在最烦、最贵、最拖延的问题是什么？"></textarea>
+            </label>
+
+            <label>
+              梦想结果
+              <textarea name="dream" rows="3" placeholder="客户真正想要达成的具体结果"></textarea>
+            </label>
+
+            <label>
+              可信机制
+              <textarea name="mechanism" rows="3" placeholder="为什么你更可能帮他们成功？方法、流程、资源、数据、案例"></textarea>
+            </label>
+
+            <div class="section-heading">
+              <span class="step">2</span>
+              <div>
+                <h2>价值方程</h2>
+                <p>提高结果和可信度，压低等待时间、努力和风险。</p>
+              </div>
+            </div>
+
+            <div class="slider-grid">
+              <label>
+                梦想结果强度
+                <input type="range" name="outcome" min="1" max="10" value="7">
+                <output data-for="outcome">7</output>
+              </label>
+              <label>
+                成功可信度
+                <input type="range" name="likelihood" min="1" max="10" value="6">
+                <output data-for="likelihood">6</output>
+              </label>
+              <label>
+                等待时间
+                <input type="range" name="delay" min="1" max="10" value="4">
+                <output data-for="delay">4</output>
+              </label>
+              <label>
+                努力和牺牲
+                <input type="range" name="effort" min="1" max="10" value="4">
+                <output data-for="effort">4</output>
+              </label>
+            </div>
+
+            <div class="section-heading">
+              <span class="step">3</span>
+              <div>
+                <h2>包装与成交</h2>
+                <p>把交付、奖金、保证和稀缺性组合成一个完整报价。</p>
+              </div>
+            </div>
+
+            <label>
+              核心交付
+              <textarea name="delivery" rows="3" placeholder="课程、陪跑、咨询、工具、社群、代办等"></textarea>
+            </label>
+
+            <label>
+              奖金组件
+              <textarea name="bonuses" rows="3" placeholder="每行一个奖金：模板包、诊断、私教课、工具库"></textarea>
+            </label>
+
+            <label>
+              保证机制
+              <textarea name="guarantee" rows="3" placeholder="例如：完成作业仍无结果，继续辅导直到达标"></textarea>
+            </label>
+
+            <div class="field-row">
+              <label>
+                标价
+                <input name="price" inputmode="numeric" placeholder="例如：9800">
+              </label>
+              <label>
+                名额/期限
+                <input name="scarcity" autocomplete="off" placeholder="例如：每月 12 个名额">
+              </label>
+            </div>
+          </form>
+
+          <aside class="panel output-panel" aria-label="报价输出">
+            <div class="score-card">
+              <div>
+                <p class="eyebrow">Value Score</p>
+                <strong id="scoreValue">72</strong>
+              </div>
+              <div class="score-meter" aria-hidden="true">
+                <span id="scoreBar"></span>
+              </div>
+            </div>
+
+            <nav class="tabs" aria-label="输出视图">
+              <button class="tab active" type="button" data-tab="offer">报价</button>
+              <button class="tab" type="button" data-tab="diagnosis">诊断</button>
+              <button class="tab" type="button" data-tab="script">成交话术</button>
+            </nav>
+
+            <section class="tab-panel active" id="offerTab">
+              <h2 id="offerTitle">你的大满贯报价</h2>
+              <div class="offer-output" id="offerOutput"></div>
+            </section>
+
+            <section class="tab-panel" id="diagnosisTab">
+              <h2>报价诊断</h2>
+              <div class="diagnosis-list" id="diagnosisList"></div>
+            </section>
+
+            <section class="tab-panel" id="scriptTab">
+              <h2>成交话术</h2>
+              <div class="offer-output" id="scriptOutput"></div>
+            </section>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
