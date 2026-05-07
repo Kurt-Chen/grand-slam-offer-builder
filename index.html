@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Grand Slam Offer Builder</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="workspace" aria-label="Grand Slam Offer Builder">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">$100M Offers</p>
+            <h1>Grand Slam Offer Builder</h1>
+          </div>
+          <div class="top-actions">
+            <button class="icon-button" id="resetButton" type="button" title="恢复示例" aria-label="恢复示例">↺</button>
+            <button class="primary-button" id="copyButton" type="button">复制方案</button>
+          </div>
+        </header>
+
+        <div class="layout">
+          <form class="panel input-panel" id="offerForm">
+            <div class="section-heading">
+              <span class="step">1</span>
+              <div>
+                <h2>选择值得服务的市场</h2>
+                <p>先确认人群是否有强痛点、购买力、容易触达，并且正在成长。</p>
+              </div>
+            </div>
+            <label>目标市场 / 细分人群
+              <input name="market" autocomplete="off" placeholder="例如：客单价 5000+ 的 B2B 咨询顾问">
+            </label>
+            <div class="field-row">
+              <label>痛苦程度
+                <input type="range" name="painLevel" min="1" max="10" value="8">
+                <output data-for="painLevel">8</output>
+              </label>
+              <label>购买力
+                <input type="range" name="buyingPower" min="1" max="10" value="7">
+                <output data-for="buyingPower">7</output>
+              </label>
+              <label>触达难度
+                <input type="range" name="reachDifficulty" min="1" max="10" value="4">
+                <output data-for="reachDifficulty">4</output>
+              </label>
+              <label>市场成长性
+                <input type="range" name="growth" min="1" max="10" value="7">
+                <output data-for="growth">7</output>
+              </label>
+            </div>
+
+            <div class="section-heading">
+              <span class="step">2</span>
+              <div>
+                <h2>写出梦寐以求的结果</h2>
+                <p>报价不是卖交付物，而是卖客户真正想要到达的状态。</p>
+              </div>
+            </div>
+            <label>Dream Outcome
+              <textarea name="dreamOutcome" rows="3" placeholder="客户最想得到的具体、可衡量结果是什么？"></textarea>
+            </label>
+
+            <div class="section-heading">
+              <span class="step">3</span>
+              <div>
+                <h2>列出所有障碍</h2>
+                <p>从客户开始前、执行中、完成后分别列问题，后面每个问题都要变成方案。</p>
+              </div>
+            </div>
+            <label>开始前的问题
+              <textarea name="beforeProblems" rows="3" placeholder="不知道是否适合、不会判断机会、担心踩坑等"></textarea>
+            </label>
+            <label>执行中的问题
+              <textarea name="duringProblems" rows="3" placeholder="不会做、没时间、没人反馈、卡在某一步等"></textarea>
+            </label>
+            <label>完成后的问题
+              <textarea name="afterProblems" rows="3" placeholder="不会复盘、不会扩大、结果不可持续等"></textarea>
+            </label>
+
+            <div class="section-heading">
+              <span class="step">4</span>
+              <div>
+                <h2>把障碍逐条变成解决方案</h2>
+                <p>每个客户不想面对的问题，都要对应一个能提高成功概率的承诺。</p>
+              </div>
+            </div>
+            <label>解决方案清单
+              <textarea name="solutions" rows="4" placeholder="每行一个方案：诊断、模板、代做、陪跑、检查、复盘等"></textarea>
+            </label>
+
+            <div class="section-heading">
+              <span class="step">5</span>
+              <div>
+                <h2>设计交付载体</h2>
+                <p>按个人关注度、客户努力程度、支持方式、频率、速度来组合交付。</p>
+              </div>
+            </div>
+            <div class="field-row">
+              <label>关注度
+                <select name="attention">
+                  <option>1 对 1</option>
+                  <option>小组</option>
+                  <option>一对多</option>
+                </select>
+              </label>
+              <label>客户努力程度
+                <select name="effortModel">
+                  <option>Done With You</option>
+                  <option>Done For You</option>
+                  <option>Do It Yourself</option>
+                </select>
+              </label>
+              <label>支持方式
+                <input name="support" placeholder="例如：直播、语音、群答疑、异步批改">
+              </label>
+              <label>交付频率 / 速度
+                <input name="cadence" placeholder="例如：7 天诊断，4 周完成首轮验证">
+              </label>
+            </div>
+
+            <div class="section-heading">
+              <span class="step">6</span>
+              <div>
+                <h2>删减并堆叠报价</h2>
+                <p>留下高价值、低成本的部分；去掉低价值、高成本的部分，再组合成主报价。</p>
+              </div>
+            </div>
+            <label>核心交付
+              <textarea name="coreStack" rows="3" placeholder="最终保留的主交付内容"></textarea>
+            </label>
+            <label>删掉 / 降级的部分
+              <textarea name="trimmed" rows="2" placeholder="哪些部分价值低、成本高、或可以改成模板/小组交付？"></textarea>
+            </label>
+
+            <div class="section-heading">
+              <span class="step">7</span>
+              <div>
+                <h2>加入奖金、保证、稀缺和紧迫</h2>
+                <p>奖金处理具体异议；保证降低风险；稀缺和紧迫必须来自真实限制。</p>
+              </div>
+            </div>
+            <label>奖金组件
+              <textarea name="bonuses" rows="3" placeholder="每行一个奖金，最好有名字和用途"></textarea>
+            </label>
+            <label>保证机制
+              <textarea name="guarantee" rows="3" placeholder="客户履行条件后，如果没达到结果，你如何补救或逆转风险？"></textarea>
+            </label>
+            <div class="field-row">
+              <label>稀缺
+                <input name="scarcity" placeholder="例如：每月只接 8 个名额">
+              </label>
+              <label>紧迫
+                <input name="urgency" placeholder="例如：本轮申请截止到周五">
+              </label>
+            </div>
+
+            <div class="section-heading">
+              <span class="step">8</span>
+              <div>
+                <h2>命名、定价、验证</h2>
+                <p>把结果、机制、时间或身份变化写进名字，然后用真实对话验证价格。</p>
+              </div>
+            </div>
+            <div class="field-row">
+              <label>报价名称
+                <input name="offerName" placeholder="例如：30 天高成交报价冲刺">
+              </label>
+              <label>价格
+                <input name="price" inputmode="numeric" placeholder="例如：9800">
+              </label>
+            </div>
+            <label>第一轮验证计划
+              <textarea name="validation" rows="3" placeholder="准备找谁聊、聊多少人、用什么成交标准判断报价是否成立？"></textarea>
+            </label>
+          </form>
+
+          <aside class="panel output-panel" aria-label="报价输出">
+            <div class="score-card">
+              <div>
+                <p class="eyebrow">Value Equation Score</p>
+                <strong id="scoreValue">72</strong>
+              </div>
+              <div class="score-meter" aria-hidden="true">
+                <span id="scoreBar"></span>
+              </div>
+            </div>
+
+            <nav class="tabs" aria-label="输出视图">
+              <button class="tab active" type="button" data-tab="offer">报价</button>
+              <button class="tab" type="button" data-tab="steps">步骤</button>
+              <button class="tab" type="button" data-tab="diagnosis">诊断</button>
+              <button class="tab" type="button" data-tab="script">话术</button>
+            </nav>
+
+            <section class="tab-panel active" id="offerTab">
+              <h2 id="offerTitle">你的 Grand Slam Offer</h2>
+              <div class="offer-output" id="offerOutput"></div>
+            </section>
+
+            <section class="tab-panel" id="stepsTab">
+              <h2>按书中顺序检查</h2>
+              <div class="process-list" id="stepsOutput"></div>
+            </section>
+
+            <section class="tab-panel" id="diagnosisTab">
+              <h2>价值方程诊断</h2>
+              <div class="diagnosis-list" id="diagnosisList"></div>
+            </section>
+
+            <section class="tab-panel" id="scriptTab">
+              <h2>成交话术</h2>
+              <div class="offer-output" id="scriptOutput"></div>
+            </section>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
