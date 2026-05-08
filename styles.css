@@ -125,8 +125,20 @@ h2 {
 
 .input-panel {
   display: grid;
-  gap: 18px;
+  gap: 20px;
   padding: 22px;
+}
+
+.form-step {
+  display: grid;
+  gap: 14px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.form-step:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
 }
 
 .section-heading {
@@ -140,6 +152,36 @@ h2 {
   margin-bottom: 0;
   color: var(--muted);
   line-height: 1.5;
+}
+
+.step-guide {
+  display: grid;
+  gap: 8px;
+  border: 1px solid #cfd8d2;
+  border-radius: 8px;
+  background: #f4f8f5;
+  padding: 14px;
+}
+
+.step-guide h3,
+.process-guide h4 {
+  margin: 0;
+  color: var(--accent-3);
+  font-size: 13px;
+}
+
+.step-guide ol,
+.process-guide ol {
+  margin: 0;
+  padding-left: 20px;
+  color: #3d4540;
+  line-height: 1.65;
+}
+
+.step-guide p {
+  margin: 0;
+  color: #33403a;
+  line-height: 1.6;
 }
 
 .step {
@@ -329,6 +371,10 @@ output {
   line-height: 1.7;
 }
 
+.output-block p {
+  overflow-wrap: anywhere;
+}
+
 .output-block strong {
   color: var(--accent-3);
 }
@@ -364,6 +410,20 @@ output {
   font-size: 13px;
 }
 
+.process-guide {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+  border-radius: 8px;
+  background: var(--soft);
+  padding: 12px;
+}
+
+.process-guide p {
+  color: #33403a;
+  line-height: 1.6;
+}
+
 .diagnosis-item.good {
   border-left: 4px solid var(--accent);
 }
@@ -389,6 +449,55 @@ output {
 .toast.show {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
+}
+
+.startup-reminder {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  background: rgba(23, 23, 23, 0.42);
+}
+
+.startup-reminder.hidden {
+  display: none;
+}
+
+.startup-card {
+  width: min(440px, 100%);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  padding: 22px;
+}
+
+.startup-card h2 {
+  margin-bottom: 10px;
+  font-size: 22px;
+}
+
+.startup-card p {
+  margin-bottom: 12px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.startup-card code {
+  display: block;
+  margin-bottom: 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--soft);
+  padding: 12px;
+  color: var(--accent-3);
+  font-weight: 900;
+}
+
+.startup-card .primary-button {
+  width: 100%;
 }
 
 @media (max-width: 980px) {
